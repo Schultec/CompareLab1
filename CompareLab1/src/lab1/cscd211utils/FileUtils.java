@@ -66,12 +66,26 @@ public class FileUtils
      */
     public static File openInputFile(final Scanner kb)
     {
-        System.out.println("please enter a filename");
-        String filename = kb.nextLine();
-        if(filename == null){
-            throw new IllegalArgumentException("Scanner cannot be null");
-        }
-        return openInputFile(filename);
+        if(kb == null)
+            throw new IllegalArgumentException("Scanner can't be null");
+
+        String fn = null;
+        File fin = null;
+
+        do
+        {
+            System.out.print("Please enter the name of the file ");
+            fn = kb.nextLine();
+
+            fin = new File(fn);
+
+            if(! fin.exists())
+                System.out.println("The file does not exist");
+
+        }while(! fin.exists());
+
+        return fin;
+
     }// end openInputFile
 
     /**
@@ -106,3 +120,4 @@ public class FileUtils
     }// end openInputFile
 
 }// end class
+

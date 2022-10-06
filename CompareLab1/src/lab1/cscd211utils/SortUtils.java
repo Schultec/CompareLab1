@@ -26,7 +26,28 @@ public class SortUtils<T extends Comparable<? super T>>
      */
     public static <T extends Comparable<? super T>> void selectionSort(T [] array)
     {
-        throw new UnsupportedOperationException("Method not implemented");
+        if(array == null || array.length <= 0)
+            throw new NullPointerException("selectionSort bad Params");
+
+        int start, search, min;
+        T temp;
+
+        for(start = 0; start < array.length - 1; start ++)
+        {
+            min = start;
+
+            for(search = start + 1; search < array.length; search ++)
+            {
+                if(array[search].compareTo(array[min]) < 0)
+                    min = search;
+
+            }// end for search
+
+            temp = array[min];
+            array[min] = array[start];
+            array[start] = temp;
+
+        }// end for start
 
     }// end SortUtil
 

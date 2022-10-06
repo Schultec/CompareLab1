@@ -41,7 +41,26 @@ public class CSCD211Lab1Methods {
         for (i = 0; i < Players.length; i++){
             String data = fin.nextLine().trim();
             String[] playerData =  data.split(",");
-            Players[i] = playerData[];
+            Players[i] = new Players(
+                    playerData[0],
+                    Integer.parseInt(playerData[1]),
+                    Integer.parseInt(playerData[2]),
+                    Integer.parseInt(playerData[3]),
+                    playerData[4],
+                    playerData[5],
+                    playerData[6],
+                    playerData[7],
+                    playerData[8],
+                    playerData[9],
+                    Integer.parseInt(playerData[10]),
+                    Integer.parseInt(playerData[11]),
+                    playerData[12].charAt(0),
+                    playerData[13].charAt(0),
+                    new SimpleDateFormat("MM/dd/yyyy").parse(playerData[14]),
+                    new SimpleDateFormat("MM/dd/yyyy").parse(playerData[15]),
+                    playerData[16],
+                    playerData[17]
+            );
         }
         return Players;
     }//end fillArray
@@ -145,10 +164,10 @@ public class CSCD211Lab1Methods {
         if(aPlayer == null) {
             throw new IllegalArgumentException("aPlayer cannot be null");
         }
-        Players Players[];
+        Players[] Players;
         Players = new Players[(players.length + 1)];
         int i;
-        for (i = 0; i < Players.length; i++){
+        for (i = 0; i <= Players.length; i++){
             Players[i] = players[i];
             if(i == (players.length + 1)){
                 Players[i] = aPlayer;

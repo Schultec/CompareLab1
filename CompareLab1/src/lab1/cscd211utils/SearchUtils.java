@@ -23,17 +23,15 @@ public class SearchUtils<T extends Comparable<? super T>>
      */
     public static <T extends Comparable<? super T>> int linearSearch(final T [] array, final T target)
     {
-        if(array.length < 1 || array == null){
-            throw new IllegalArgumentException("array cannot be null or less than one");
-        }
-        if(target == null){
-            throw new IllegalArgumentException("target cannot be null");
-        }
-        int i;
-        for (i = 0; i < array.length; i++){
-            if()
-        }
-        throw new UnsupportedOperationException("Method not implemented");
+        if(array == null || array.length < 1 || target == null)
+            throw new IllegalArgumentException("Bad params linearSearch");
+        for(int x = 0; x < array.length; x++)
+        {
+            if(array[x].equals(target))
+                return x;
+        }// end for
+
+        return -1;
 
     }//end linearSearch
 
